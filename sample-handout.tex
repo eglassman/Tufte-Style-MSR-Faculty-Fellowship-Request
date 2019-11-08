@@ -20,6 +20,8 @@
 % for units.
 \usepackage{units}
 
+\usepackage{xcolor}
+
 % The fancyvrb package lets us customize the formatting of verbatim
 % environments.  We use a slightly smaller font.
 \usepackage{fancyvrb}
@@ -58,48 +60,52 @@
   \label{fig:summaryfig2}
 \end{marginfigure}
 
-\begin{abstract}
-\noindent 
-%Programming teachers, practitioners, and researchers currently rely on inefficient or prohibitively time-consuming mechanisms for understanding trends in large corpora of code. 
-%As a researcher in \textbf{human-centered data mining}, 
-%I am a researcher in %\textbf{human-computer interaction (HCI)},
-%working on \textbf{data-driven programming systems}.
-%As a \textbf{data science researcher},
-%As a researcher in \textbf{human-computer interaction (HCI)} working closely with ,
-As an \textbf{human-computer interaction (HCI)} researcher working closely with researchers in \textbf{programming languages and information theory},
-I design, build and evaluate systems for code and data demography, i.e., comprehending and interacting with population-level structure and trends in \textbf{large code and data corpora}. These systems augment human intelligence by giving users a ``useful degree of comprehension in a situation that previously was too complex.''\cite{engelbart1962} 
-\end{abstract}
+%\begin{abstract}
+%As an human-computer interaction (HCI) researcher working closely with researchers in programming languages, machine learning, and information theory,
+%I design, build and evaluate systems for code and data demography, i.e., comprehending and interacting with population-level structure and trends in large code and data corpora. These systems augment human intelligence by giving users a ``useful degree of comprehension in a situation that previously was too complex.''\cite{engelbart1962} \textcolor{blue}{what's innovative about what I'm doing?}
+%\end{abstract}
 
-In my doctoral and postdoctoral work at MIT and UC Berkeley, I have used \emph{program analysis and synthesis techniques, interactive inference algorithms, visualization principles, and theories from cognitive science} to build systems that allow people to complete existing large-scale code-related tasks more quickly and answer new questions that were previously prohibitively time-consuming to investigate (Figs.~\ref{fig:summaryfig1} and~\ref{fig:summaryfig2}). For example, \smallcaps{Overcode} (Fig.~\ref{fig:overcode}) is now deployed at UC Berkeley, where teachers give code composition feedback to more than 1500 students in a few hours.\cite{overcode} \smallcaps{Examplore} (Fig.~\ref{fig:examplore}) allows programmers, API designers, and researchers to answer questions about how API methods are actually used in the wild.\cite{examplore} Now, as a fellow at the Berkeley Institute of Data Science, I am exploring how to generalize these methods beyond code to help data scientists, social scientists, journalists, and other end-users more easily work with large amounts of data and communicate their intent to machines using concrete examples. 
+I use program analysis and synthesis techniques, interactive inference algorithms, visualization principles, and theories from cognitive science to build systems that allow people to (a) complete existing large-scale code-and-data-related tasks more quickly and (b) answer new questions that were previously prohibitively time-consuming to investigate (Figs.~\ref{fig:summaryfig1} and~\ref{fig:summaryfig2}). 
+%For example, \smallcaps{Overcode} (Fig.~\ref{fig:overcode}) is now deployed at UC Berkeley, where teachers give code composition feedback to more than 1500 students in a few hours.\cite{overcode} 
+For example, \smallcaps{Examplore} (Fig.~\ref{fig:examplore}) allows programmers, API designers, and researchers to answer questions about how API methods are actually used in the wild.\cite{examplore} In addition to further developing methods that support programming language \& library users and designers, I am also generalizing these methods beyond code to help doctors, data scientists, social scientists, journalists, machine learning practitioners, and other end-users comprehend, form hypotheses, act on, and even author programs on large amounts of semi-structured complex data, such as patient records from patients with a common diagnosis, robot trajectories generated for a particular task, and articles on a common topic.% and communicate their intent to machines. 
 
-The conceptual key to my approach is defining \emph{task-relevant abstractions} through data-driven (1) user-centered design or (2) inference algorithms. For example, I designed \smallcaps{examplore}'s abstract API skeleton to register and align hundreds of usage examples against each other so that users can get a high-level view of a corpus without sacrificing the ability to read concrete code. This design is supported by theories of human learning, such as analogical learning and Variation Theory: showing multiple aligned examples simultaneously helps induce accurate abstractions in the user's mind. In \smallcaps{FixPropagator}, the abstractions are inferred from data: as a programming teacher begins to fix and give feedback on buggy student code submissions, the back end infers more general, abstract code transformations to propagate fixes and relevant teacher feedback to other buggy student code.\cite{lats17} 
+The conceptual key to my approach is defining \emph{task-relevant abstractions} through data-driven (1) user-centered design or (2) inference algorithms. I designed \smallcaps{examplore}'s abstract API skeleton to register and align hundreds of usage examples against each other so that users can get a high-level view of a corpus without sacrificing the ability to read concrete code. This design is supported by theories of human learning, such as analogical learning and Variation Theory: showing multiple aligned examples simultaneously helps induce accurate abstractions in the user's mind. In \smallcaps{FixPropagator}, the abstractions are inferred from data: as a programming teacher begins to fix and give feedback on buggy student code submissions, the back end infers more general, abstract code transformations to propagate fixes and relevant teacher feedback to other buggy student code.\cite{lats17} 
 
+\section{1. Supporting programmers in the wild and at companies with large codebases}
 
+Understanding the space of possible code solutions is helpful beyond the classroom, as well. 
+\smallcaps{examplore} (Fig.~\ref{fig:examplore}) is an example of code demography for visualizing and exploring thousands of code examples using the same API: in collaboration with software engineering researchers at UCLA, we created an interactive visualization by mining hundreds of thousands of open-source Github repositories to reveal the common and uncommon ways in which the open-source developer community uses a Java API method.\cite{examplore} To register hundreds of API usage examples against each other for overlaid display, I worked with our collaborators to design an abstraction, the API skeleton, grounded in (1) how API design is taught in their software engineering curricula and (2) how they, as API mining researchers, conceptualize their task. %Interacting with the visualization reveals the facets of the distribution of canonicalized statements and structures enclosing the API method of interest.
+\begin{figure*}[h]
+  \includegraphics[width=0.65\linewidth]{Statistical_Code_Examples.png}%
+  \caption{In this screenshot, \smallcaps{Examplore} shows the head of the canonicalized distribution of \texttt{FileInputStream} API usage in 100 open-source Github repositories.}%
+  \label{fig:examplore}%
+\end{figure*}
 
+In a lab study, we found that \smallcaps{Examplore} helped programmers understand and answer questions about the distribution of usage patterns of a particular API method in the wild. I hope to make this tool available as an online resource that complements official documentation and Q\&A sites. I also hope to work with companies that have large proprietary codebases and APIs, like Google and Facebook, to customize this tool for their internal on-boarding and code review needs. Through initial contacts, it is clear companies are eager to adopt new tools, like \smallcaps{Examplore}, to increase programmer productivity. 
 
-\section{1. Tools for teachers and students in massive classrooms}\label{sec:human}
-
-Enrollment in introductory programming and data science courses is skyrocketing. Even hardware design classes can contain hundreds of students, each constructing their own simulated circuits. %Students have a shared semantic programming goal but they collectively create a large distribution of implementations. It is difficult for teachers to understand what is happening in their classes, and prohibitively labor-intensive to provide expert-level feedback at scale as often as it was possible before enrollments rose dramatically. 
-It is both a challenge and an opportunity to reinvent how we teach students and how students teach each other. With collaborators and mentees, I built, user-tested, and deployed five systems at MIT and UC Berkeley that explore this space of possibilities.%\cite{grovercode}
+%\section{1. Tools for teachers and students in massive classrooms}\label{sec:human}
+\section{2. Data-driven humans and machine teaching by example}
+%Enrollment in introductory programming and data science courses is skyrocketing. Even hardware design classes can contain hundreds of students, each constructing their own simulated circuits. %Students have a shared semantic programming goal but they collectively create a large distribution of implementations. It is difficult for teachers to understand what is happening in their classes, and prohibitively labor-intensive to provide expert-level feedback at scale as often as it was possible before enrollments rose dramatically. 
+%It is both a challenge and an opportunity to reinvent how we teach students and how students teach each other. With collaborators and mentees, I built, user-tested, and deployed five systems at MIT and UC Berkeley that explore this space of possibilities.%\cite{grovercode}
 
 
 %see the distribution of student code submissions and misconceptions, discover unusually clever and poor choices, curate sets of examples that clarify important concepts, and give both class-level and automatically personalized individual feedback that can be reused in subsequent semesters. %Two students I mentor are now preparing to make \smallcaps{OverCode} available to all introductory Python programming teachers at any school or university this spring.
 
-\begin{figure*}[h]
-  \includegraphics[width=0.65\linewidth]{overcode.png}%
-  \caption{\smallcaps{OverCode} is an example of code demography for teachers in massive programming classes who want to understand the contents of the functions their students wrote.}%
-  \label{fig:overcode}%
-\end{figure*}
+%\begin{figure*}[h]
+%  \includegraphics[width=0.65\linewidth]{overcode.png}%
+%  \caption{\smallcaps{OverCode} is an example of code demography for teachers in massive programming classes who want to understand the contents of the functions their students wrote.}%
+%  \label{fig:overcode}%
+%\end{figure*}
 
 
-\smallcaps{OverCode} is an example of code demography for visualizing and exploring thousands of solutions to the same programming problem. It uses both static and dynamic analysis to cluster similar solutions and represents each cluster as a synthesized solution that implicitly describes both the cluster center and its boundaries. Teachers can filter and further cluster solutions based on various criteria. One of \smallcaps{OverCode}'s key abstractions is equating variables across solutions based on behavior during execution; these common variables are each renamed to their most popular student-given name, which highlights remaining differences in algorithms and syntax. In user studies, \smallcaps{OverCode} allowed teachers to more quickly develop a high-level view of student understanding and misconceptions, and provide feedback on selected examples that are relevant to more student solutions. %Given its successful integration into programming course infrastructure at UC Berkeley, we hope to make it available to large programming classes at other institutions as well. %A few teachers can give personalized composition feedback on code from over a thousand students in a few hours. The feedback can be automatically reused in following semesters.
-\\\\
-\noindent
-\emph{Societal and potentially commercial impact}\\
-\smallcaps{OverCode} has now been fully integrated into the code composition feedback process of the largest introductory Python programming course at UC Berkeley, which regularly enrolls 1500 students: rather than distributing work to as many as 50 graders, a handful of teaching assistants can give feedback to the entire class in a few hours. We expect that this same feedback will be re-sent to students in future semesters, with little additional effort on the part of the teaching staff. Two Master's students, one at MIT and one at UC Berkeley, have earned---or soon will---their degree in EECS by contributing to this effort and a third student at UC Berkeley is leading the charge to make this tool available to all other schools with large Python programming courses. We are also fielding requests to help others adapt this technology to other programming languages.
-\\\\
-\noindent
-\emph{Scalable, data-driven teaching by example}\\
+%\smallcaps{OverCode} is an example of code demography for visualizing and exploring thousands of solutions to the same programming problem. It uses both static and dynamic analysis to cluster similar solutions and represents each cluster as a synthesized solution that implicitly describes both the cluster center and its boundaries. Teachers can filter and further cluster solutions based on various criteria. One of \smallcaps{OverCode}'s key abstractions is equating variables across solutions based on behavior during execution; these common variables are each renamed to their most popular student-given name, which highlights remaining differences in algorithms and syntax. In user studies, \smallcaps{OverCode} allowed teachers to more quickly develop a high-level view of student understanding and misconceptions, and provide feedback on selected examples that are relevant to more student solutions. %Given its successful integration into programming course infrastructure at UC Berkeley, we hope to make it available to large programming classes at other institutions as well. %A few teachers can give personalized composition feedback on code from over a thousand students in a few hours. The feedback can be automatically reused in following semesters.
+%\\\\
+%\noindent
+%\emph{Societal and potentially commercial impact}\\
+%\smallcaps{OverCode} has now been fully integrated into the code composition feedback process of the largest introductory Python programming course at UC Berkeley, which regularly enrolls 1500 students: rather than distributing work to as many as 50 graders, a handful of teaching assistants can give feedback to the entire class in a few hours. We expect that this same feedback will be re-sent to students in future semesters, with little additional effort on the part of the teaching staff. Two Master's students, one at MIT and one at UC Berkeley, have earned---or soon will---their degree in EECS by contributing to this effort and a third student at UC Berkeley is leading the charge to make this tool available to all other schools with large Python programming courses. We are also fielding requests to help others adapt this technology to other programming languages.
+%\\\\
+%\noindent
+%\emph{Scalable, data-driven teaching by example}\\
 Variable names are an important component of code composition, but it is difficult to quickly get an accurate picture of how well all your students are naming variables, and prohibitively time-consuming to comment on individual variable names at scale. \smallcaps{Foobaz} solves this problem by letting teachers draw from their own students' naming choices to create a set of examples that clarify the concept of a good, contextually appropriate variable name.\cite{foobaz} Specifically, \smallcaps{Foobaz} uses \smallcaps{OverCode}'s common variable abstraction to reveal the distribution of student-chosen names for each common variable. Teachers curate and label names of varying quality for the most common variable roles, and \smallcaps{Foobaz} sends each student a set of these examples to evaluate as alternative names for the corresponding variable role in their own program. Students then compare their judgments to teacher labels to help train their inner variable naming critic. %This is a novel, scalable form of data-driven human teaching about code composition.
 
 \newpage
@@ -115,17 +121,7 @@ I also developed and deployed \smallcaps{Dear Beta} and \smallcaps{Dear Gamma} i
 % \end{marginfigure}
 
 %\newpage
-\section{2. Supporting programmers in the wild and at companies with large codebases}
 
-Understanding the space of possible code solutions is helpful beyond the classroom, as well. 
-\begin{figure*}[h]
-  \includegraphics[width=0.65\linewidth]{Statistical_Code_Examples.png}%
-  \caption{In this screenshot, \smallcaps{Examplore} shows the head of the canonicalized distribution of \texttt{FileInputStream} API usage in 100 open-source Github repositories.}%
-  \label{fig:examplore}%
-\end{figure*}
-\smallcaps{examplore} (Fig.~\ref{fig:examplore}) is an example of code demography for visualizing and exploring thousands of code examples using the same API: in collaboration with software engineering researchers at UCLA, we created an interactive visualization by mining hundreds of thousands of open-source Github repositories to reveal the common and uncommon ways in which the open-source developer community uses a Java API method.\cite{examplore} To register hundreds of API usage examples against each other for overlaid display, I worked with our collaborators to design an abstraction, the API skeleton, grounded in (1) how API design is taught in their software engineering curricula and (2) how they, as API mining researchers, conceptualize their task. %Interacting with the visualization reveals the facets of the distribution of canonicalized statements and structures enclosing the API method of interest.
-
-In a lab study, we found that \smallcaps{Examplore} helped programmers understand and answer questions about the distribution of usage patterns of a particular API method in the wild. I hope to make this tool available as an online resource that complements official documentation and Q\&A sites. I also hope to work with companies that have large proprietary codebases and APIs, like Google and Facebook, to customize this tool for their internal on-boarding and code review needs. Through initial contacts, it is clear companies are eager to adopt new tools, like \smallcaps{Examplore}, to increase programmer productivity. 
 
 
 % of engineers at 
