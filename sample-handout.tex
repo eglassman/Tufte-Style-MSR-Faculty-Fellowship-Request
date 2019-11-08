@@ -81,8 +81,13 @@ The conceptual key to my approach is defining \emph{task-relevant abstractions} 
 
 \section{Research directions}
 
-In addition to further developing these tools for programmers and library developers in the wild and at companies with large codebases, I am also generalizing these methods beyond code to help doctors, data scientists, social scientists, journalists, machine learning practitioners, and other end-users comprehend, form hypotheses, act on, and even author programs on large amounts of semi-structured complex data, such as patient records from patients with a common diagnosis, robot trajectories generated for a particular task, and articles on a common topic.% and communicate their intent to machines. 
+In addition to further developing these tools for programmers and library developers in the wild and at companies with large codebases, I am also generalizing these methods beyond code to help doctors, data scientists, social scientists, journalists, machine learning practitioners, and other end-users comprehend, form hypotheses, act on, and even author programs on large amounts of semi-structured complex data, such as patient records from patients with a common diagnosis, robot trajectories generated for a particular task, and articles on a common topic.
 
+\subsection{How can we more naturally communicate our intent to machines?}
+\textbf{Data-driven human and machine teaching by example}
+\noindent
+The critical, possibly latent, structural features that distinguish examples from each other help both humans and machines learn concepts and infer abstractions that generalize well. Examples are, therefore, a natural medium for communication between people and machines.
+Data demography supports this form of communication: it exposes the population-level characteristics of large datasets in a way that keeps concrete examples front and center instead of hiding them behind nodes in large graphs or other abstractions.
 %\section{1. Supporting programmers in the wild and at companies with large codebases}
 
 %Understanding the space of possible code solutions is helpful beyond the classroom, as well. 
@@ -92,7 +97,7 @@ In addition to further developing these tools for programmers and library develo
 %In a lab study, we found that \smallcaps{Examplore} helped programmers understand and answer questions about the distribution of usage patterns of a particular API method in the wild. I hope to make this tool available as an online resource that complements official documentation and Q\&A sites. I also hope to work with companies that have large proprietary codebases and APIs, like Google and Facebook, to customize this tool for their internal on-boarding and code review needs. Through initial contacts, it is clear companies are eager to adopt new tools, like \smallcaps{Examplore}, to increase programmer productivity. 
 
 %\section{1. Tools for teachers and students in massive classrooms}\label{sec:human}
-\section{Data-driven human and machine teaching by example}
+
 %Enrollment in introductory programming and data science courses is skyrocketing. Even hardware design classes can contain hundreds of students, each constructing their own simulated circuits. %Students have a shared semantic programming goal but they collectively create a large distribution of implementations. It is difficult for teachers to understand what is happening in their classes, and prohibitively labor-intensive to provide expert-level feedback at scale as often as it was possible before enrollments rose dramatically. 
 %It is both a challenge and an opportunity to reinvent how we teach students and how students teach each other. With collaborators and mentees, I built, user-tested, and deployed five systems at MIT and UC Berkeley that explore this space of possibilities.%\cite{grovercode}
 
@@ -164,7 +169,7 @@ Theories of human concept learning, e.g., Variation Theory,\cite{vt} assert that
 
 %When I joined UC Berkeley as a postdoctoral scholar funded by the NSF Expeditions in Computer Augmented Program Engineering (ExCAPE) grant, I was introduced to program synthesis by example and the newly available Microsoft PROgram Synthesis by Example (PROSE) SDK. I collaborated with PL researchers to build two successful systems on top of this technology, \smallcaps{FixPropagator} and \smallcaps{MistakeBrowser}, and co-organized a workshop to help other researchers use PROSE for their own research purposes. 
 %At the Dagstuhl Seminar ``Approaches and Applications of Inductive Programming,'' we concluded that program synthesis tools are mature enough for us to concentrate on developing theory and methods around \emph{how users interact} with them.
-\\
+%\\
 %did not have the means to reason about was only reasoning about the statistical distribution of these features, not the semantic meaning o
 
 %that were already encoded in a machine-friendly way, but the results were less than stellar because the iBCM could only reason about statistical properties of features across different clusters, not the semantic meaning of the programs being clustered. When I arrived at  operated on a statistical picture of the data without any had no notion of the semantics
@@ -202,8 +207,8 @@ Theories of human concept learning, e.g., Variation Theory,\cite{vt} assert that
 
 %I create prototypes and make them accessible to social scientists and data journalists to see what kinds of existing questions they can more easily answer, and what new questions they formulate.% who are looking for trends in the textI am now working with several students at UC Berkeley to create a prototype that can be tested by social scientists at the Berkeley Institute of Data Science.
 
-\subsection{How can we more naturally communicate our intent to machines?}
-The critical, possibly latent, structural features that distinguish examples from each other help both humans and machines learn concepts and infer abstractions that generalize well. Examples are, therefore, a natural medium for communication between people and machines. Code and data demography strongly support this kind of communication: it exposes the population-level characteristics of large datasets in a way that keeps concrete examples front and center instead of hiding them behind nodes in large graphs or other abstractions. Some of the systems I hope to build next will combine example-based inference techniques with data demography to help users thoroughly examine the data in their corpus (1) before selecting examples to teach the machine and (2) while reviewing the machine-inferred results. I expect that data demography will help users clarify their own intentions\cite{vule} and curate better examples to teach machines, much like \smallcaps{OverCode} and \smallcaps{Foobaz} helped teachers understand the state of their massive classroom and pick better examples to address student misconceptions. I hope to continue working with experts in programming languages and machine learning to improve the ways in which humans and machines communicate and collaborate, in order to develop applications with real-world impact.
+%Some of the systems I hope to build next will combine example-based inference techniques with data demography to help users thoroughly examine the data in their corpus (1) before selecting examples to teach the machine and (2) while reviewing the machine-inferred results. 
+I expect that data demography will help users clarify their own intentions\cite{vule} and curate better examples to teach machines, much like \smallcaps{OverCode}\cite{overcode} and \smallcaps{Foobaz}\cite{foobaz} helped teachers understand the state of their massive classroom and pick better examples to address student misconceptions. %I hope to continue working with experts in programming languages and machine learning to improve the ways in which humans and machines communicate and collaborate, in order to develop applications with real-world impact.
  
 
 
