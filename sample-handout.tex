@@ -71,14 +71,14 @@ I use program analysis and synthesis techniques, interactive inference algorithm
 As an human-computer interaction (HCI) researcher working closely with researchers in programming languages, machine learning, and information theory, I design, build and evaluate systems for code and data demography, i.e., comprehending and interacting with population-level structure and trends in large code and data corpora, and the effects of human-written, synthesized, or learned (ML) programs applied to them. 
 %I use the term \emph{demography} is a reference to the population level insights these methods provide at a glance in addition to the preservation of concrete details. 
 The systems and interfaces I build augment human intelligence by giving users a ``useful degree of comprehension in a situation that previously was too complex.''\cite{engelbart1962} 
-
-The conceptual key to my approach is defining \emph{task-relevant abstractions} using user-centered design or inference algorithms. For example, \smallcaps{Examplore} (Fig.~\ref{fig:examplore}) allows programmers, API designers, and researchers to answer questions about how API methods are actually used in the wild.\cite{examplore} I designed \smallcaps{examplore}'s abstract API skeleton to register and align hundreds of usage examples against each other so that users can get a high-level view of a corpus without sacrificing the ability to read concrete code. This design is supported by theories of human learning, such as analogical learning and Variation Theory: showing multiple aligned examples simultaneously helps induce accurate abstractions in the user's mind. In \smallcaps{FixPropagator}, the abstractions are inferred from expert demonstrations: as a programming teacher begins to fix and give feedback on buggy student code submissions, the back end infers more general, abstract code transformations to propagate fixes and relevant teacher feedback to other buggy student code.\cite{lats17} 
-
+The conceptual key to my approach is defining \emph{task-relevant abstractions} using user-centered design or inference algorithms. For example, \smallcaps{Examplore} (Fig.~\ref{fig:examplore}) allows programmers, API designers, and researchers to answer questions about how API methods are actually used in the wild.\cite{examplore} I designed \smallcaps{examplore}'s abstract API skeleton to register and align hundreds of usage examples against each other so that users can get a high-level view of a corpus without sacrificing the ability to read concrete code. This design is supported by theories of human learning, such as analogical learning and Variation Theory: showing multiple aligned examples simultaneously helps induce accurate abstractions in the user's mind. In \smallcaps{FixPropagator}, the abstractions are inferred from expert demonstrations: as a programming teacher begins to fix and give feedback on buggy student code submissions, the back end infers more general, abstract code transformations to propagate fixes and relevant teacher feedback to other buggy student code.\cite{lats17} In that interactive system, the inference is performed by the Microsoft PROgram Synthesis by Example (PROSE) SDK and a custom tree-transforming domain specific language.
 \begin{figure*}[h]
-  \includegraphics[width=0.65\linewidth]{Statistical_Code_Examples.png}
+  \includegraphics[width=0.64\linewidth]{Statistical_Code_Examples.png}
   \caption{In this screenshot, \smallcaps{Examplore} shows the head of the canonicalized distribution of \texttt{FileInputStream} API usage in 100 open-source Github repositories.}%
   \label{fig:examplore}%
 \end{figure*}
+
+\section{Research directions}
 
 In addition to further developing these tools for programmers and library developers in the wild and at companies with large codebases, I am also generalizing these methods beyond code to help doctors, data scientists, social scientists, journalists, machine learning practitioners, and other end-users comprehend, form hypotheses, act on, and even author programs on large amounts of semi-structured complex data, such as patient records from patients with a common diagnosis, robot trajectories generated for a particular task, and articles on a common topic.% and communicate their intent to machines. 
 
@@ -91,7 +91,7 @@ In addition to further developing these tools for programmers and library develo
 %In a lab study, we found that \smallcaps{Examplore} helped programmers understand and answer questions about the distribution of usage patterns of a particular API method in the wild. I hope to make this tool available as an online resource that complements official documentation and Q\&A sites. I also hope to work with companies that have large proprietary codebases and APIs, like Google and Facebook, to customize this tool for their internal on-boarding and code review needs. Through initial contacts, it is clear companies are eager to adopt new tools, like \smallcaps{Examplore}, to increase programmer productivity. 
 
 %\section{1. Tools for teachers and students in massive classrooms}\label{sec:human}
-\section{2. Data-driven humans and machine teaching by example}
+\section{Data-driven humans and machine teaching by example}
 %Enrollment in introductory programming and data science courses is skyrocketing. Even hardware design classes can contain hundreds of students, each constructing their own simulated circuits. %Students have a shared semantic programming goal but they collectively create a large distribution of implementations. It is difficult for teachers to understand what is happening in their classes, and prohibitively labor-intensive to provide expert-level feedback at scale as often as it was possible before enrollments rose dramatically. 
 %It is both a challenge and an opportunity to reinvent how we teach students and how students teach each other. With collaborators and mentees, I built, user-tested, and deployed five systems at MIT and UC Berkeley that explore this space of possibilities.%\cite{grovercode}
 
@@ -144,8 +144,11 @@ In addition to further developing these tools for programmers and library develo
 %Now that we have shown that code demography generalizes beyond the classroom, there are a whole new set of users and tasks that can be supported. By continuing my collaboration with researchers in software engineering, I plan to explore the use of code demography to support (1) API designers who want to see how people use their API, (2) programmers who need to learn about how an unfamiliar function is used in practice, and (3) software engineers interested in a statistical picture of how the code base at their company is written before contributing their own code or participating in a code review. 
 
 %\newpage
-\section{3. Collaborating with PL and ML researchers to improve the interface between people and intelligent back ends}\label{sec:teaching}
-Theories of human concept learning, e.g., Variation Theory,\cite{vt} assert that showing people strategically diverse sets of examples will help them construct mental abstractions that generalize well. The same is true when teaching machines. In the following projects, I show how examples are mined for data-driven teaching of both humans and machines. To achieve these results, I collaborated with academic and industry researchers in programming languages (PL) and machine learning (ML) to produce systems with cutting-edge intelligent back ends and front ends that enable real-world impact. %I hope to continue to collaborate with these researchers, as well as use of the Microsoft PROSE SDK for synthesizing programs by example.
+%\section{3. Collaborating with PL and ML researchers to improve the interface between people and intelligent back ends}\label{sec:teaching}
+Theories of human concept learning, e.g., Variation Theory,\cite{vt} assert that showing people strategically diverse sets of examples will help them construct mental abstractions that generalize well. The same is true when teaching machines. 
+%In the following projects, I show how examples are mined for data-driven teaching of both humans and machines. 
+%I am collaborating with academic and industry researchers in programming languages (PL) and machine learning (ML) to produce systems with cutting-edge intelligent back ends and front ends that enable real-world impact. 
+%I hope to continue to collaborate with these researchers, as well as use of the Microsoft PROSE SDK for synthesizing programs by example.
 % \\\\
 % \noindent
 % \emph{Teaching humans}\\
@@ -169,9 +172,9 @@ When I joined UC Berkeley as a postdoctoral scholar funded by the NSF Expedition
 
 %The previously described systems rely on abstractions designed from domain insights for a particular task. In collaboration with program synthesis and machine learning experts, I led the development of the following mixed-initiative systems that \textbf{infer task-relevant abstractions} from examples gathered either implicitly or explicitly from people.
  %The teacher and the machine take turns marking up individual student solutions to suggest possible clusterings and the critical features that could distinguish one cluster from another.
-\noindent
-\emph{Interacting with program synthesis by example}\\
-I led the development of two interactive systems that leverage program synthesis by example.\cite{lats17} \smallcaps{FixPropagator} \textbf{allows teachers to teach the machine, by demonstration, how they would fix a bug} in a particular student solution. In the back end, a state-of-the-art program synthesis technique infers more general abstract syntax tree (AST) transformations, e.g., \texttt{var*var} becomes \texttt{f(var)*var}, that are consistent with the teacher's demonstration.\cite{refazer} These inferred abstract transformations are applied to fix other buggy student solutions as well. \smallcaps{MistakeBrowser} uses the same program synthesis technique to infer abstract code transformations from examples of students fixing bugs in their own submissions, which were mined from the autograder logs of a massive programming course. In other words, \textbf{as students fix their own bugs, the machine is learning to fix other student bugs in the same way}. Incorrect submissions are clustered by the machine-inferred transformations that correct them and presented to the teacher. As a result, the space of common and uncommon bugs becomes explicit and human-understandable almost at a glance. For each cluster, teachers write feedback that can be propagated to all current and future code submissions fixed by the same transformation. 
+%\noindent
+%\emph{Interacting with program synthesis by example}\\
+%I led the development of two interactive systems that leverage program synthesis by example.\cite{lats17} \smallcaps{FixPropagator} \textbf{allows teachers to teach the machine, by demonstration, how they would fix a bug} in a particular student solution. In the back end, a state-of-the-art program synthesis technique infers more general abstract syntax tree (AST) transformations, e.g., \texttt{var*var} becomes \texttt{f(var)*var}, that are consistent with the teacher's demonstration.\cite{refazer} These inferred abstract transformations are applied to fix other buggy student solutions as well. \smallcaps{MistakeBrowser} uses the same program synthesis technique to infer abstract code transformations from examples of students fixing bugs in their own submissions, which were mined from the autograder logs of a massive programming course. In other words, \textbf{as students fix their own bugs, the machine is learning to fix other student bugs in the same way}. Incorrect submissions are clustered by the machine-inferred transformations that correct them and presented to the teacher. As a result, the space of common and uncommon bugs becomes explicit and human-understandable almost at a glance. For each cluster, teachers write feedback that can be propagated to all current and future code submissions fixed by the same transformation. 
 
 %\newthought{In the future,} 
 %these two types of interactive backends, data-driven Bayesian methods and program synthesis by example can be combined for a better user experience.
@@ -180,9 +183,6 @@ I led the development of two interactive systems that leverage program synthesis
 
 
 
-
-
-\section{Research directions}
 
 
 \subsection{Generalizing from code to data demography}
