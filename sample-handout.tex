@@ -79,25 +79,32 @@ The conceptual key to my approach is defining \emph{task-relevant abstractions} 
   \label{fig:examplore}%
 \end{figure*}
 
-\section{Research directions}
+\section*{Research directions}
 
-In addition to further developing these tools for programmers and library developers in the wild and at companies with large codebases, I am also generalizing these methods beyond code to help doctors, data scientists, social scientists, journalists, machine learning practitioners, and other end-users comprehend, form hypotheses, act on, and even author programs on large amounts of semi-structured complex data, such as patient records from patients with a common diagnosis, robot trajectories generated for a particular task, and articles on a common topic.
+\subsection*{How can we help programmers write better code faster?}
 
-\subsection*{How can we more naturally communicate our intent to machines?}
+%the team developed a novel code mining and interactive visualization system, EXAMPLORE, that allows users to simultaneously compare and contrast hundreds of API usage examples for a single API, so they can understand the distribution over common and un- common usage patterns of that API in the wild and better answer usage questions. 
+%The team calls this approach code demography. 
+\smallcaps{examplore} will be the first of a series of tools that transform the modern language, library, and API design, selection, and usage experience for all who program. Björn Hartmann, Miryung Kim, my postdoc Tianyi Zhang, and I are working on new tools for helping programmers (1) how to use APIs in a particular context, (2) how to design and evolve an API, and (3) how to assess an API or select between multiple APIs with similar capabilities.
+%In addition to further developing these tools for programmers and library developers in the wild and at companies with large codebases, 
+\subsection*{Beyond code}
+I am generalizing demography beyond code to help doctors, data scientists, social scientists, journalists, machine learning practitioners, and other end-users comprehend, form hypotheses, act on, and even author programs on large amounts of semi-structured complex data, such as patient records from patients with a common diagnosis, robot trajectories generated for a particular task, and articles on a common topic.\\[0.2cm]
+\noindent
+\emph{How can we more naturally communicate our intent to machines?}\\
 %\subsection{How can humans and machines communicate better about data and the functions applied to them?}
 %\textbf{Data-driven human and machine teaching by example}
-%\noindent
+\noindent
 The critical, possibly latent, structural features that distinguish examples from each other help both humans and machines learn concepts and infer abstractions that generalize well. Examples are, therefore, a natural medium for communication between people and machines.
-Data demography supports this form of communication: it exposes the population-level characteristics of large datasets in a way that keeps concrete examples front and center instead of hiding them behind nodes in large graphs or other abstractions. 
-
-I expect that data demography will help users clarify their own intentions\cite{vule} and curate better examples to teach machines, much like \smallcaps{OverCode}\cite{overcode} and \smallcaps{Foobaz}\cite{foobaz} helped teachers understand the state of their massive classroom and pick better examples to address student misconceptions.
-
+Data demography supports this form of communication: it exposes the population-level characteristics of large datasets in a way that keeps concrete examples front and center instead of hiding them behind nodes in large graphs or other abstractions. I expect that data demography will help users clarify their own intentions\cite{vule} and curate better examples to teach machines, much like \smallcaps{OverCode}\cite{overcode} and \smallcaps{Foobaz}\cite{foobaz} helped teachers understand the state of their massive classroom and pick better examples to address student misconceptions.\\[0.2cm]
 %And since the human's and machine's inductive biases when generalizing from examples, interfaces that employ new data demography methods can help humans select the most informative examples with respect to the intent they are trying to communicate to the machine.
-
-\subsection*{How can data demography increase algorithmic transparency?}
-
-Theories of human concept learning assert that showing people strategically diverse sets of examples will help them construct mental abstractions that generalize well.\cite{vt} When a computer machine-learns or synthesizes a function on a human's behalf, these theories can have implications for which examples are most useful for helping the human construct a useful mental model of the behavior of the otherwise black box function. I plan to build systems that address this challenge by generalizing data demography to reveal \emph{population-level changes} in datasets induced by a function, whether it was human-written, synthesized, or machine-learned. %(The same is true in re when humans teach machines.)
-
+\noindent
+\emph{How can data demography increase algorithmic transparency?}\\
+\noindent
+Theories of human concept learning assert that showing people strategically diverse sets of examples will help them construct mental abstractions that generalize well.\cite{vt} When a computer machine-learns or synthesizes a function on a human's behalf, these theories can have implications for which examples are most useful for helping the human construct a useful mental model of the behavior of the otherwise black box function. I plan to build systems that address this challenge by generalizing data demography to reveal \emph{population-level changes} in datasets induced by a function, whether it was human-written, synthesized, or machine-learned.\\[0.2cm] %(The same is true in re when humans teach machines.)
+\emph{When the system fails, how do we debug?}\\
+\noindent
+As powerful as communicating with machines by examples and annotations can be, existing systems can fail in opaque and frustrating ways. How do we build systems that \emph{explain their failure} to synthesize a program that is consistent with user-provided examples? A simple failure mode in program synthesis occurs when the synthesizer's grammar does not match the user's mental model: perhaps the user is teaching the machine how to extract something from raw HTML but the grammar has no notion of matching start and end tags. %The program synthesis toolkit my systems currently use, the Microsoft PROSE SDK, requires an expert-designed grammar to perform well on new tasks and corpora. Rather than co-create abstractions in a fixed grammar, 
+What if the machine and the end-user could co-create the grammar itself?
 %\section{1. Supporting programmers in the wild and at companies with large codebases}
 
 %Understanding the space of possible code solutions is helpful beyond the classroom, as well. 
@@ -149,21 +156,13 @@ Theories of human concept learning assert that showing people strategically dive
 
 % of engineers at 
 %I also hope to reach out to and co with research groups within large companies like Google and Facebook, such as the Engineering Productivity Research Group at Google, to customize this tool for their internal on-boarding and code review needs of companies with large proprietary codebases and APIs.
-
-
 %Programmers routinely consult examples when writing their own code, and consider community- and language-specific conventions when committing to a common code base or performing code review. 
- %, together with code examples that exhibit this usage.
-
+%, together with code examples that exhibit this usage.
 %To register hundreds of API usage examples against each other and display them overlaid, I designed a general abstraction, the API skeleton, grounded in (1) how API design is taught in software engineering curricula and (2) how API mining researchers conceptualize their task. Interacting with the visualization reveals the facets of the distribution of canonicalized statements and structures enclosing the API method of interest. 
-
-
 %Now that we have shown that code demography generalizes beyond the classroom, there are a whole new set of users and tasks that can be supported. By continuing my collaboration with researchers in software engineering, I plan to explore the use of code demography to support (1) API designers who want to see how people use their API, (2) programmers who need to learn about how an unfamiliar function is used in practice, and (3) software engineers interested in a statistical picture of how the code base at their company is written before contributing their own code or participating in a code review. 
-
 %\newpage
 %\section{3. Collaborating with PL and ML researchers to improve the interface between people and intelligent back ends}\label{sec:teaching}
 %\subsection{How can data demography increase algorithmic transparency?}
-
-
 %At the recent Dagstuhl seminar series, ``Approaches and Applications of Inductive Programming,'' we concluded that program synthesis tools are mature enough for us to concentrate on developing theory and methods around \emph{how users interact} with them, helping them select, annotate, or demonstrate the concept or transformation they want the computer to understand and propagate to new data.
 %In the following projects, I show how examples are mined for data-driven teaching of both humans and machines. 
 %I am collaborating with academic and industry researchers in programming languages (PL) and machine learning (ML) to produce systems with cutting-edge intelligent back ends and front ends that enable real-world impact. 
@@ -171,75 +170,45 @@ Theories of human concept learning assert that showing people strategically dive
 % \\\\
 % \noindent
 % \emph{Teaching humans}\\
-
-
 % \noindent
 % \emph{Teaching machines}\\
 %In my first exploration of example-based inference frameworks, specifically the interactive Bayesian Case Model (iBCM),
 %I collaborated with iBCM's creator to build an interface on top of the model to test how well domain experts could collaborate with the machine---by choosing examples and critical features---to define statistically valid clusters that were also relevant to the expert's tasks.\cite{tr15} These experts were Python teachers clustering student-written Python programs and, despite a clever encoding of these programs that captured some semantics, iBCM was not well matched to the task: it was only concerned with statistical distributions of features, and therefore not sufficiently concerned with the semantics of the programs themselves. 
-
 %When I joined UC Berkeley as a postdoctoral scholar funded by the NSF Expeditions in Computer Augmented Program Engineering (ExCAPE) grant, I was introduced to program synthesis by example and the newly available Microsoft PROgram Synthesis by Example (PROSE) SDK. I collaborated with PL researchers to build two successful systems on top of this technology, \smallcaps{FixPropagator} and \smallcaps{MistakeBrowser}, and co-organized a workshop to help other researchers use PROSE for their own research purposes. 
 %At the Dagstuhl Seminar ``Approaches and Applications of Inductive Programming,'' we concluded that program synthesis tools are mature enough for us to concentrate on developing theory and methods around \emph{how users interact} with them.
 %\\
 %did not have the means to reason about was only reasoning about the statistical distribution of these features, not the semantic meaning o
-
 %that were already encoded in a machine-friendly way, but the results were less than stellar because the iBCM could only reason about statistical properties of features across different clusters, not the semantic meaning of the programs being clustered. When I arrived at  operated on a statistical picture of the data without any had no notion of the semantics
-
 % \subsection{Teaching humans}
 % Variable names are an important component of code composition, and yet it is prohibitively time-consuming to comment on each student's variable names at scale. \smallcaps{Foobaz}~\cite{foobaz} uses \smallcaps{OverCode}'s common variable abstraction to reveal the distribution of student-chosen names for each common variable. Teachers curate and label interesting choices of good and bad names from the distribution, and \smallcaps{Foobaz} sends each student a set of these teacher-labeled examples to evaluate as alternative names for a variable in their own program. Students then compare their judgments to teacher labels to help train their inner variable naming critic. 
-
 %\subsection{Teaching machines}
-
 %The previously described systems rely on abstractions designed from domain insights for a particular task. In collaboration with program synthesis and machine learning experts, I led the development of the following mixed-initiative systems that \textbf{infer task-relevant abstractions} from examples gathered either implicitly or explicitly from people.
- %The teacher and the machine take turns marking up individual student solutions to suggest possible clusterings and the critical features that could distinguish one cluster from another.
+%The teacher and the machine take turns marking up individual student solutions to suggest possible clusterings and the critical features that could distinguish one cluster from another.
 %\noindent
 %\emph{Interacting with program synthesis by example}\\
 %I led the development of two interactive systems that leverage program synthesis by example.\cite{lats17} \smallcaps{FixPropagator} \textbf{allows teachers to teach the machine, by demonstration, how they would fix a bug} in a particular student solution. In the back end, a state-of-the-art program synthesis technique infers more general abstract syntax tree (AST) transformations, e.g., \texttt{var*var} becomes \texttt{f(var)*var}, that are consistent with the teacher's demonstration.\cite{refazer} These inferred abstract transformations are applied to fix other buggy student solutions as well. \smallcaps{MistakeBrowser} uses the same program synthesis technique to infer abstract code transformations from examples of students fixing bugs in their own submissions, which were mined from the autograder logs of a massive programming course. In other words, \textbf{as students fix their own bugs, the machine is learning to fix other student bugs in the same way}. Incorrect submissions are clustered by the machine-inferred transformations that correct them and presented to the teacher. As a result, the space of common and uncommon bugs becomes explicit and human-understandable almost at a glance. For each cluster, teachers write feedback that can be propagated to all current and future code submissions fixed by the same transformation. 
-
 %\newthought{In the future,} 
 %these two types of interactive backends, data-driven Bayesian methods and program synthesis by example can be combined for a better user experience.
-
 %Since the Microsoft PROSE SDK for synthesizing programs by example was a major component of these systems, I co-organized a workshop at UC Berkeley for fellow researchers who want to learn how to use  that served as a major foundation of both these systems.
-
-
-
-
-
 %\subsection{Generalizing from code to data demography}
-
 %Many people who work with data have datasets that are too large, too noisy, too complex, or too unstructured to make sense of at once. How can code demography be generalized to more kinds of data, especially data types that have structure but also require reading and interpretation, e.g., natural language or mathematical statements written in \LaTeX{}?
 %Formal analysis techniques can continue to be a tool for processing the data and finding underlying structure. 
 %As a first step, I would like to investigate whether the types of abstractions inferred by data-driven program synthesis algorithms can help extend visualizations like \smallcaps{examplore} to represent large semi-structured collections of text, e.g., massive log files or large collections of paper abstracts.  
-
 %There are also ample opportunities to assist data journalists and social scientists. For example, a professor of international relations at Harvard University asked me to analyze a large collection of geolocated tweets from Egypt to discover population-level changes in political expression over time during the recent revolution. 
 %I discovered that the same trade-offs between time and frequency resolution in signal processing existed in the processing of time-varying textual corpora.
 %Given my prior work on wavelet-like filters for multi-resolution analysis of biomedical signals,\cite{snap} I am now composing algorithms and visualizations for multi-resolution analysis for time-evolving text corpora. I hope to create and test prototypes in collaboration with a variety of domain experts who could benefit from these tools.
 % professionals and academics to see what kinds of pressing questions they can more easily answer, and what new questions they may formulate. %I would also hope to make the tool available to %, e.g., social scientists studying protest movements.
-
 %I create prototypes and make them accessible to social scientists and data journalists to see what kinds of existing questions they can more easily answer, and what new questions they formulate.% who are looking for trends in the textI am now working with several students at UC Berkeley to create a prototype that can be tested by social scientists at the Berkeley Institute of Data Science.
-
-%Some of the systems I hope to build next will combine example-based inference techniques with data demography to help users thoroughly examine the data in their corpus (1) before selecting examples to teach the machine and (2) while reviewing the machine-inferred results. 
- %I hope to continue working with experts in programming languages and machine learning to improve the ways in which humans and machines communicate and collaborate, in order to develop applications with real-world impact.
- 
-
-
-
+%Some of the systems I hope to build next will combine example-based inference techniques with data demography to help users thoroughly examine the data in their corpus (1) before selecting examples to teach the machine and (2) while reviewing the machine-inferred results. %I hope to continue working with experts in programming languages and machine learning to improve the ways in which humans and machines communicate and collaborate, in order to develop applications with real-world impact.
 %In other words, when the system gives an answer, how do we know it's what we intended?
-
 %When a domain expert applies a function to their large dataset, regardless of whether they wrote that function themselves or it was learned from data, it is difficult to verify that the function performed as the expert intended on every data point. Machine-inferred functions can also be difficult to inspect directly: they may be composed of many layers, nonlinearities, and weights, a hyperplane in high-dimensional space, or a program written in a grammar that the end-user is completely unfamiliar with. I plan to build systems that address this challenge by generalizing data demography to reveal \emph{population-level changes} in datasets induced by a function. This is particularly important for functions that are otherwise difficult to interpret, e.g., neural networks. While exposing the induced changes may reveal machine errors that temporarily lower the expert's confidence in the function's correctness, the demographic view should also reveal information that helps the expert debug, e.g., quickly identify false positives and false negatives or data in the corpus that was incorrectly extracted or transformed.
 %The results of example-based inference techniques can be difficult to express directly, in a notation an end-user understands. 
 %In \smallcaps{MistakeBrowswer}\cite{lats17}, 
 %we did not yet have an easily readable notation for directly expressing a machine-induced abstract code transformation. 
-
 %For a concrete, near-term example of how data demography could help users review machine-inferred results, consider how \smallcaps{MistakeBrowser} currently communicates a machine-induced bug-fixing abstract code transformation to the user, a teacher: the interface renders a list of all the buggy student code submissions before and after the bug-fixing transformation was applied. It can be cognitively exhausting to review this list, so the teacher often only looks at a few transformed student code submissions and does not necessarily get an accurate picture of how the transformation is acting on all their students' code. Teachers may form inferences more quickly and accurately if each cluster of transformed code is visualized in an aligned and overlaid way, much like the API usage examples in \smallcaps{Examplore}.
-
 %Similarly, I would like to explore how data demography can increase the transparency of---and trust in---autonomous system behavior. Just prior to entering the field of HCI, I was publishing distance functions for planning dynamic movements for robots.\cite{lqrrt},\cite{sos} Just as code demography helps programmers quickly explore an unfamiliar API, can \emph{trajectory demography} help roboticists or end-users quickly make correct inferences about how a new robot will behave under a variety of circumstances? As a faculty member, I hope to reconnect with the robotics community and explore possible collaborations. %Can data demography help roboticists debug---and end-users interact with and trust---autonomous systems?
-
-
-
 %More broadly, I expect that data demography help users teach machines and learning from machines, while also giving them more \emph{accurate} levels of confidence in the results. 
-\subsection{When the system fails, how do we debug?}
-As powerful as communicating with machines by example, annotation, and demonstration can be, existing systems can fail in opaque and frustrating ways. How do we build systems that \emph{explain their failure} to synthesize a program that is consistent with user-provided examples? A simple failure mode in program synthesis occurs when the synthesizer's grammar does not match the user's mental model: perhaps the user is teaching the machine how to extract something from raw HTML but the grammar has no notion of matching start and end tags. The program synthesis toolkit my systems currently use, the Microsoft PROSE SDK, requires an expert-designed grammar to perform well on new tasks and corpora. Rather than co-create abstractions in a fixed grammar, what if the machine and the end-user could co-create, or at least modify, the grammar itself? %As a first step, I hope to create visualizations and interaction mechanisms that demystify the internal state of program synthesis engines when they fail. I will continue collaborating with programming language researchers in academia and industry, such as my colleagues on the PROSE SDK core developer team at Microsoft Research, to create better inspection, debugging, and interaction tools for end-users and developers alike.
+ %As a first step, I hope to create visualizations and interaction mechanisms that demystify the internal state of program synthesis engines when they fail. I will continue collaborating with programming language researchers in academia and industry, such as my colleagues on the PROSE SDK core developer team at Microsoft Research, to create better inspection, debugging, and interaction tools for end-users and developers alike.
 
 
 
